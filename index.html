@@ -1,1 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rock Paper Scissors</title>
+  <meta charset="UTF-8"/>
+</head>
+<body>
 
+  <script>
+    function computerPlay(){
+        let rndm = Math.floor(Math.random() * (4 - 1) + 1);
+       if (rndm === 1){
+              return "Rock";
+              }
+        else if(rndm === 2){
+                return "Paper";
+        }
+        else {
+            return "Scissor";
+        }   
+        
+    }
+    function exactText(){
+            let playerSelected = prompt("Rock paper or scissor?");
+            let playerDef = playerSelected.length;
+
+            switch(playerDef){
+                case 4:
+                return "Rock";
+                break;
+                case 5:
+                return "Paper";
+                break;
+                case 7:
+                return "Scissor";
+                default:
+                console.log("wrong input, please try again(Rock, Paper or Scissor)!");
+            }
+        
+        }
+    function playRound() {
+        playerSelection = exactText();
+        computerSelection = computerPlay();
+        
+        if (playerSelection == computerSelection){
+           win = "d";
+            
+        }
+         else if (playerSelection == "Scissor" && computerSelection == "Rock" || playerSelection == "Rock" && computerSelection=="Paper"||playerSelection==  "Paper"&& computerSelection=="Scissor" ){
+           win = "c"; 
+                      
+        }
+        else if(computerSelection == "Scissor" && playerSelection == "Rock" || computerSelection == "Rock" && playerSelection=="Paper"||computerSelection==  "Paper"&& playerSelection=="Scissor" ){
+         
+            win= "p";
+            
+        }
+        else {
+            return "Ooops something went wrong!"
+        }
+       return win;
+    }
+
+    function counter(){
+        if(win=="d"){}
+
+        else if (win == "c"){
+            computerScore = computerScore + 1;
+        }
+        else if(win =="p"){
+            playerScore =playerScore + 1;
+        }
+
+        return " player: "+playerScore+" points  computer: "+computerScore+" points";
+    }
+
+    function consoles(){
+      let consoleText 
+        if (win=="d") {
+          consoleText = "a draw";
+       }
+       else if (win=="c"){
+          consoleText = "You lose, " +computerSelection+" beats "+playerSelection+"!";
+       }
+       else if (win=="p"){
+           consoleText = "You win, "+playerSelection+" beats "+computerSelection+"!";
+       }
+       return consoleText;
+    }
+    
+    function game(){
+        computerScore= 0;
+        playerScore = 0;
+        let winner;
+        playRound();
+        console.log(consoles(),counter());
+        playRound();
+        console.log(consoles(),counter());
+        playRound();
+        console.log(consoles(),counter());
+        playRound();
+        console.log(consoles(),counter());
+        playRound();
+        console.log(consoles(),counter());
+        if (playerScore > computerScore){
+           winner = "Congrats, you won! Reload it to play another game." 
+        }
+        else if(playerScore==computerScore){
+            winner = "There is no winner! Reload it to play another game."
+        }
+        else {
+            winner = "Sorry, you loose. Reload it to play another game."
+        }
+        console.log(winner);
+    }
+    
+
+let computerSelection;
+let playerSelection;
+let computerScore ;
+let playerScore ;
+let win;
+
+game();
+  </script>
+</body>
+</html>
