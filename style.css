@@ -1,0 +1,42 @@
+
+ div.keys{
+     display:flex;
+     flex-direction: row;
+     flex-wrap: wrap;
+     justify-content: center;
+
+ }  
+
+div.key {
+    margin: 5px;
+    margin-top: 5%;
+    margin-left: 5%;
+
+    border: 1px solid #ccc;
+    
+    width: 360px;
+
+}
+
+div.key:hover{
+    border: 1px solid black;
+}
+
+div.key img{
+    width: 100%;
+    height: auto;
+}
+
+
+
+#box{
+     position: relative;
+    top: 90%;
+    border: 1px solid black;
+    background-color: rgb(223, 224, 153);
+    padding: 10px;
+    margin: 20px;
+    
+
+}
+
